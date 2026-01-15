@@ -18,3 +18,4 @@ file_permissions=(
   ["/etc/customize_airootfs.sh"]="0:0:755"
 )
 # Revision: 2.0
+# Revision: 3.0
