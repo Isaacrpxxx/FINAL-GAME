@@ -1,0 +1,36 @@
+name: Build GAME-OS ISO
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
+      options: --privileged
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          pacman -Syu --noconfirm
+          pacman -S --needed --noconfirm archiso mkinitcpio-archiso erofs-utils squashfs-tools
+
+      - name: Build ISO
+        run: |
+          # Limpieza preventiva
+          rm -rf /tmp/archiso-workspace
+          mkdir -p /tmp/out
+          # Construcción con permisos de root
+          mkarchiso -v -w /tmp/archiso-workspace -o /tmp/out .
+
+      - name: Upload ISO artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: GAME-OS-ISO
+          path: /tmp/out/*.iso

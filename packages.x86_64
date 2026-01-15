@@ -1,0 +1,14 @@
+linux-zen
+linux-zen-headers
+base
+base-devel
+syslinux
+mkinitcpio
+mkinitcpio-archiso
+openbox
+xorg-server
+xorg-xinit
+xterm
+mkinitcpio
+mkinitcpio-archiso
+linux-zen
