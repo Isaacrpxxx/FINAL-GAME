@@ -16,6 +16,8 @@ file_permissions=(
   ["/root"]="0:0:700"
   ["/root/.xinitrc"]="0:0:755"
   ["/etc/customize_airootfs.sh"]="0:0:755"
+  ["/etc/systemd/system/unlock-root.service"]="0:0:644"
+  ["/etc/systemd/system/sysinit.target.wants/unlock-root.service"]="0:0:0644"
 )
 # Revision: 2.0
 # Revision: 3.0
