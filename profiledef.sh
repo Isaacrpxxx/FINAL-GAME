@@ -11,10 +11,10 @@ airootfs_image_type="squashfs"
 airootfs_image_tool_options=('-comp' 'xz' '-Xbcj' 'x86')
 
 file_permissions=(
-  ["/etc/shadow"]="0:0:0400"
-  ["/etc/gshadow"]="0:0:0400"
-  ["/etc/passwd"]="0:0:0644"
-  ["/etc/group"]="0:0:0644"
-  ["/root"]="0:0:0700"
+  ["/etc/shadow"]="0:0:400"
+  ["/etc/passwd"]="0:0:644"
+  ["/root"]="0:0:700"
+  ["/root/.xinitrc"]="0:0:755"
+  ["/etc/customize_airootfs.sh"]="0:0:755"
 )
 # Revision: 2.0
